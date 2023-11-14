@@ -1,0 +1,62 @@
+.pagination {
+    display: flex;
+    list-style: none;
+    margin: 20px 10px;
+    width: 220px;
+    height: 30px;
+    position: relative;
+    left: 20px;
+    /* background-color: #333; */
+    color:#fff;  
+  }
+  
+  
+  .pagination li {
+    width: 40px;
+  /* height: 20px; */
+  text-align: center;
+  text-decoration: none;
+  color:#000;
+  font-size: 20px;
+  height: 40px;
+  background-color:#ccc;
+
+}
+  
+  .pagination li.active {
+    font-weight: bold;
+    color: red;
+  }
+  .next{
+    width: 40px;
+    /* height: 20px; */
+    text-align: center;
+    
+    background-color:#ccc;
+   }
+   .next a{
+    text-decoration: none;
+    color:#000;
+    font-size: 18px;
+    border-right:2px solid #ccc;
+    height: 40px;
+   }
+ .previous{
+  width: 40px;
+  /* height: 20px; */
+  text-align: center;
+  
+  background-color:#ccc;
+  margin-left: -20px;
+ }
+ .previous a{
+  text-decoration: none;
+  color:#000;
+  font-size: 20px;
+  border-right:2px solid #ccc;
+  height: 40px;
+ }
+
+ .search:focus{
+  background-color:transparent;
+ }
