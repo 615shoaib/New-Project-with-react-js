@@ -33,26 +33,31 @@ const Edit = ({ val }) => {
     <>
       {editItem ? (
         <>
+        <div>
           <input
             placeholder="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="border-1 border-black"
+            style={{border:"1px solid #ccc"}}
           />
            <input
-            placeholder="title"
+            placeholder="price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             className="border-1 border-black"
+            style={{border:"1px solid #ccc"}}
           />
            <input
-            placeholder="title"
+            placeholder="Category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             className="border-1 border-black"
+            style={{border:"1px solid #ccc"}}
           />
           <button onClick={handlesave} className="btn btn-primary">SaveEdit</button>
           <button onClick={cancelEdit} className="btn btn-secondary">Cancel</button>
+          </div>
         </>
       ) : (
         <>
