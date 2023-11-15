@@ -30,7 +30,6 @@ const Input = () => {
     setValue("");
     setPrice("");
     setCategory("");
-    // localStorage.setItem("jsonData", JSON.stringify(updateItem));
     localStorage.setItem("jsonData", JSON.stringify(updateItem));
     alert(`succsessful add New Item`)
   };
