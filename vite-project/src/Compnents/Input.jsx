@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import { AppProvider } from "../Content/Api";
 
 const Input = () => {
@@ -14,6 +14,15 @@ const Input = () => {
     setData,
   } = useContext(AppProvider);
 
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("jsonData"));
+    if (storedData) {
+      setData(storedData);
+    }
+  }, []);
+
+
   const createItem = () => {
     if(!value || !price || !category){
         return alert(`please check your information`);
@@ -25,7 +34,6 @@ const Input = () => {
       category: category,
     };
     const updateItem = [...data, updateObj];
-    console.log(updateItem);
     setData(updateItem);
     setValue("");
     setPrice("");

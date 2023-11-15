@@ -16,11 +16,13 @@ const Pagination = () => {
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const subset = data.slice(startIndex, endIndex);
+  const subset = data.slice(startIndex,endIndex);
 
   const handlePageChange = (selectedPage) => {
     setCurrentPage(selectedPage.selected);
   };
+
+
 
   if(currentPage === "" || subset.length === 0){
     return <h1>no data found</h1>
