@@ -2,7 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { AppProvider } from "../Content/Api";
 const Edit = ({ val }) => {
   const [editItem, setEditItem] = useState("");
-  const { data, value, setValue, setData } = useContext(AppProvider);
+  const { data, setData } = useContext(AppProvider);
+  const [title,setTitle]=useState("")
+  const [price,setPrice]=useState("")
+  const [category,setCategory]=useState("")
 
   const handleEdit = (id) => {
     console.log(id);
@@ -10,22 +13,46 @@ const Edit = ({ val }) => {
   };
   const handlesave = () => {
     const updatedData = data.map((item) =>
-      item.id === val.id ? { ...item, title: value } : item
+      item.id === val.id ? { ...item, title: title,catgory:category,price:price } : item
     );
     setData(updatedData);
-    setValue(" ");
+    setTitle("");
+    setPrice("");
+    setCategory("");
+    setEditItem(null)
     localStorage.setItem("jsonData", JSON.stringify(updatedData));
   };
+
+  const cancelEdit =()=>{
+    setEditItem(null)
+    setTitle(val.title || "")
+    setPrice(val.price || "");
+    setCategory(val.category || "");
+  }
   return (
     <>
       {editItem ? (
         <>
           <input
             placeholder="title"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="border-1 border-black"
           />
-          <button onClick={handlesave}>SaveEdit</button>
+           <input
+            placeholder="title"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className="border-1 border-black"
+          />
+           <input
+            placeholder="title"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="border-1 border-black"
+          />
+          <button onClick={handlesave} className="btn btn-primary">SaveEdit</button>
+          <button onClick={cancelEdit} className="btn btn-secondary">Cancel</button>
         </>
       ) : (
         <>

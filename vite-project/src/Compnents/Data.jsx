@@ -10,7 +10,7 @@ import Pagination from './Pagination';
 const Data = () => {
 
   const {data,setData,setTotalPages,itemsPerPage}=useContext(AppProvider)
-  
+    
       useEffect(()=>{
         
         const getUser = async () => {

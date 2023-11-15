@@ -31,7 +31,6 @@ const Input = () => {
     setPrice("");
     setCategory("");
     localStorage.setItem("jsonData", JSON.stringify(updateItem));
-    alert(`succsessful add New Item`)
   };
   return (
     <div

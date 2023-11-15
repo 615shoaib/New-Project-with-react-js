@@ -23,12 +23,17 @@ function Sorted() {
     }
     else if (event.target.value === 'titleHigh') {
       hanldeTitles();
+    }else if(event.target.value === 'id'){
+      handleId()
     }
-   
+    
   };
 
 
-  
+  const handleId =()=>{
+    const updateItem = [...data].sort((a,b)=>a.id >b.id ? 1 : -1 )
+    setData(updateItem)
+  }
 
   const hanldeTitle = () => {
     const updateItem =  [...data].sort((a, b) => a.title.localeCompare(b.title));
@@ -61,7 +66,7 @@ function Sorted() {
           label="Sort"
           onChange={handleChange}
         >
-          <MenuItem >
+          <MenuItem value="id">
             <em>None</em>
           </MenuItem>
           <MenuItem value="lowToHigh">Low to High Price</MenuItem>
