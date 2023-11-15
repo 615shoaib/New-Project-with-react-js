@@ -13,7 +13,7 @@ const Edit = ({ val }) => {
   };
   const handlesave = () => {
     const updatedData = data.map((item) =>
-      item.id === val.id ? { ...item, title: title,catgory:category,price:price } : item
+      item.id === val.id ? { ...item, title: title,category:category,price:price } : item
     );
     setData(updatedData);
     setTitle("");
