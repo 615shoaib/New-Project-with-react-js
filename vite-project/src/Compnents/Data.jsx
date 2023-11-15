@@ -10,15 +10,7 @@ import Pagination from './Pagination';
 const Data = () => {
 
   const {data,setData,setTotalPages,itemsPerPage}=useContext(AppProvider)
-   
-
-    const [search,setSearch]=useState("")
-    const [newItem,setNewItem]=useState("")
-
-
-    
-
-
+  
       useEffect(()=>{
         
         const getUser = async () => {
@@ -51,9 +43,7 @@ const Data = () => {
   return (
     
     <>
- 
-
-      <Pagination />
+     <Pagination />
     </>
   )
 }
