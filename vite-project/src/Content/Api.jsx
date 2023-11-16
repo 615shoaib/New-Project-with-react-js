@@ -14,9 +14,6 @@ const Api = ({children}) => {
   const itemsPerPage = 4;
 
 
-  const [value,setValue]=useState("")
-  const [price,setPrice]=useState("")
-  const [category,setCategory]=useState("")
   return (
    <>
     <AppProvider.Provider value={{
@@ -25,9 +22,6 @@ const Api = ({children}) => {
       currentPage,setCurrentPage,
       totalPages,setTotalPages,
       itemsPerPage,
-      value,setValue,
-      price,setPrice,
-      category,setCategory,
     }}>
         {children}
     </AppProvider.Provider>

@@ -1,18 +1,21 @@
 import React from "react";
-import { useContext,useEffect } from "react";
+import { useContext,useEffect,useState } from "react";
 import { AppProvider } from "../Content/Api";
 
 const Input = () => {
   const {
-    value,
-    setValue,
-    price,
-    setPrice,
-    category,
-    setCategory,
     data,
     setData,
+    setCurrentPage,
+    itemsPerPage,
+    totalPages,
   } = useContext(AppProvider);
+
+  
+  const [value,setValue]=useState( "")
+  const [price,setPrice]=useState("")
+  const [category,setCategory]=useState("")
+
 
 
   useEffect(() => {
@@ -35,6 +38,13 @@ const Input = () => {
     };
     const updateItem = [...data, updateObj];
     setData(updateItem);
+
+  const totalPagesAfterAddition = Math.ceil(updateItem.length / itemsPerPage);
+  if (totalPagesAfterAddition !== totalPages) {
+    setCurrentPage(totalPagesAfterAddition - 1);
+  }
+  
+
     setValue("");
     setPrice("");
     setCategory("");
