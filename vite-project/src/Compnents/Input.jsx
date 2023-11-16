@@ -29,7 +29,7 @@ const Input = () => {
   const createItem = () => {
     if(!value || !price || !category){
         return alert(`please check your information`);
-    }
+    } 
     const updateObj = {
       id: data.length + 1,
       title: value,
@@ -39,8 +39,9 @@ const Input = () => {
     const updateItem = [...data, updateObj];
     setData(updateItem);
 
-  const totalPagesAfterAddition = Math.ceil(updateItem.length / itemsPerPage);
+  const totalPagesAfterAddition = Math.ceil(updateItem.length / itemsPerPage );
   if (totalPagesAfterAddition !== totalPages) {
+    console.log(totalPagesAfterAddition )
     setCurrentPage(totalPagesAfterAddition -1);
   }
   

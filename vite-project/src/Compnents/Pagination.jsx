@@ -18,10 +18,13 @@ const Pagination = () => {
   const endIndex = startIndex + itemsPerPage;
   const subset = data.slice(startIndex, endIndex);
 
-  const handlePageChange = (selectedPage) => {
-    setCurrentPage(selectedPage.selected);
+  const handlePageChange = ({ selected: selectedPage }) => {
+    setCurrentPage(selectedPage)
   };
 
+    const forcePageValue = Math.min(currentPage,totalPages+1)
+    console.log(forcePageValue)
+  
   if (currentPage === "" || subset.length === 0) {
     return <Error />;
   }
@@ -36,7 +39,8 @@ const Pagination = () => {
           pageCount={totalPages}
           pageRangeDisplayed={5}
           onPageChange={handlePageChange}
-          forcePage={currentPage}
+          // forcePage={currentPage}
+          forcePage={forcePageValue}
           containerClassName="pagination"
           renderOnZeroPageCount={null}
           activeClassName="active"
