@@ -9,6 +9,7 @@ const Input = () => {
     setCurrentPage,
     itemsPerPage,
     totalPages,
+    currentPage
   } = useContext(AppProvider);
 
   
@@ -43,6 +44,7 @@ const Input = () => {
   console.log(totalPagesAfterAddition)
   if (totalPagesAfterAddition !== totalPages) {
     setCurrentPage(totalPagesAfterAddition -1);
+    currentPage+1;
   }
   
 
