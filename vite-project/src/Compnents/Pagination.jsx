@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import "./main.css";
 import { AppProvider } from "../Content/Api";
 import Datainfo from "./Datainfo";
-
+import Error from "./Error";
 const Pagination = () => {
   const {
     data,
@@ -16,18 +16,15 @@ const Pagination = () => {
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const subset = data.slice(startIndex,endIndex);
+  const subset = data.slice(startIndex, endIndex);
 
   const handlePageChange = (selectedPage) => {
     setCurrentPage(selectedPage.selected);
   };
 
-
-
-  if(currentPage === "" || subset.length === 0){
-    return <h1>no data found</h1>
+  if (currentPage === "" || subset.length === 0) {
+    return <Error />;
   }
-
 
   return (
     <>
@@ -35,11 +32,13 @@ const Pagination = () => {
 
       <div style={{ display: "flex", justifyContent: "center" }}>
         <ReactPaginate
+          breakLabel="..."
           pageCount={totalPages}
-          pageRangeDisplayed={3}
+          pageRangeDisplayed={5}
           onPageChange={handlePageChange}
           forcePage={currentPage}
           containerClassName="pagination"
+          renderOnZeroPageCount={null}
           activeClassName="active"
         />
       </div>

@@ -23,7 +23,6 @@ const Data = () => {
             } else {
               const response = await axios.get('https://fakestoreapi.com/products');
               const apiData = response.data;
-        
               setTotalPages(Math.ceil(apiData.length / itemsPerPage));
               setData(apiData);
               localStorage.setItem('jsonData', JSON.stringify(apiData));

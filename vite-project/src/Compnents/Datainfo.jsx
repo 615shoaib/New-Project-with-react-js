@@ -5,6 +5,7 @@ import { useContext } from "react";
 import Delete from "./Delete";
 import Input from "./Input";
 import Edit from "./Edit"
+import Error from "./Error"
 
 const Datainfo = ({ subset }) => {
   const { data, setData, search } = useContext(AppProvider);
@@ -51,7 +52,7 @@ const Datainfo = ({ subset }) => {
                 </>
               ))
               :
-              "no data found"
+              <Error />
               }
         </tbody>
       </table>
