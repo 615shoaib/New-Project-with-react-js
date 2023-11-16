@@ -26,10 +26,11 @@ const Input = () => {
   }, []);
 
 
+
   const createItem = () => {
     if(!value || !price || !category){
         return alert(`please check your information`);
-    }
+    } 
     const updateObj = {
       id: data.length + 1,
       title: value,

@@ -22,14 +22,9 @@ const Pagination = () => {
     setCurrentPage(selectedPage)
   };
 
-    const forcePageValue = totalPages > 0 ? currentPage : 0
+  const forcePageValue = Math.min(currentPage,totalPages)
 
-    useEffect(() => {
-      setCurrentPage(0);
-    }, [data]);
-
-    
-    
+ 
   if (currentPage === "" || subset.length === 0) {
     return <Error />;
   }
@@ -39,8 +34,6 @@ const Pagination = () => {
       <Datainfo subset={subset} />
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-       {
-        totalPages > 0 && 
         <ReactPaginate
           breakLabel="..."
           pageCount={totalPages}
@@ -52,7 +45,6 @@ const Pagination = () => {
           renderOnZeroPageCount={null}
           activeClassName="active"
         />
-       }
       </div>
     </>
   );
