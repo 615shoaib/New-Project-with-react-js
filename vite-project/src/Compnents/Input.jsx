@@ -9,11 +9,10 @@ const Input = () => {
     setCurrentPage,
     itemsPerPage,
     totalPages,
-    currentPage
   } = useContext(AppProvider);
 
   
-  const [value,setValue]=useState("")
+  const [value,setValue]=useState( "")
   const [price,setPrice]=useState("")
   const [category,setCategory]=useState("")
 
@@ -41,10 +40,8 @@ const Input = () => {
     setData(updateItem);
 
   const totalPagesAfterAddition = Math.ceil(updateItem.length / itemsPerPage);
-  console.log(totalPagesAfterAddition)
   if (totalPagesAfterAddition !== totalPages) {
     setCurrentPage(totalPagesAfterAddition -1);
-    currentPage+1;
   }
   
 

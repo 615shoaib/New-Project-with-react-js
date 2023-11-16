@@ -13,7 +13,6 @@ const Api = ({children}) => {
   const [totalPages, setTotalPages] = useState(0);
   const itemsPerPage = 4;
 
-
   return (
    <>
     <AppProvider.Provider value={{
