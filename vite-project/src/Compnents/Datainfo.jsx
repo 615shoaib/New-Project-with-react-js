@@ -36,9 +36,9 @@ const Datainfo = ({ subset }) => {
                   return val;
                 }
               })
-              .map((val) => (
+              .map((val,i) => (
                 <>
-                  <tr key={val.id}>
+                  <tr key={i}>
                     <td>{val.id}</td>
                     <td scope="row">{val.title.slice(0, 20)}</td>
                     <td>{val.price}</td>
