@@ -22,8 +22,7 @@ const Pagination = () => {
     setCurrentPage(selectedPage)
   };
 
-    const forcePageValue = Math.min(currentPage,totalPages+1)
-    
+    const forcePageValue = totalPages > 0 ? currentPage : 0
 
     useEffect(() => {
       setCurrentPage(0);
