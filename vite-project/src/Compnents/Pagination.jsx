@@ -24,13 +24,11 @@ const Pagination = () => {
 
 
 
-  // if(currentPage === "" || subset.length === 0){
-  //   return <h1>no data found</h1>
-  // }
-
   if(currentPage === "" || subset.length === 0){
     return <h1>no data found</h1>
   }
+
+
   return (
     <>
       <Datainfo subset={subset} />
