@@ -12,11 +12,27 @@ const Pagination = () => {
     currentPage,
     setCurrentPage,
     totalPages,
+    search,
   } = useContext(AppProvider);
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const subset = data.slice(startIndex, endIndex);
+
+
+  const filterItem =  data.filter((val) => {
+    if (val.title === '') {
+      return val;
+    } else if (
+      val.title.toLowerCase().includes(search.toLowerCase()) ||
+      val.category.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return val;
+    }
+  })
+  .slice(startIndex, endIndex);
+
+
 
   const handlePageChange = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage)
@@ -25,13 +41,17 @@ const Pagination = () => {
   const forcePageValue = Math.min(currentPage,totalPages)
 
  
-  if (currentPage === "" || subset.length === 0) {
-    return <Error />;
-  }
+  if (currentPage === "" || filterItem.length === 0) {
+    return (
+    <>
+    <p>no data found</p>
+      <Error/>
+    </>)
+ }
 
   return (
     <>
-      <Datainfo subset={subset} />
+      <Datainfo filterItem={filterItem} />
 
       <div style={{ display: "flex", justifyContent: "center" }}>
         <ReactPaginate

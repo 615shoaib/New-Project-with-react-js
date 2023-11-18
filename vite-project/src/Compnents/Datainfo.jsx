@@ -7,7 +7,7 @@ import Input from "./Input";
 import Edit from "./Edit"
 import Error from "./Error"
 
-const Datainfo = ({ subset }) => {
+const Datainfo = ({ filterItem }) => {
   const { data, setData, search } = useContext(AppProvider);
 
 
@@ -26,18 +26,7 @@ const Datainfo = ({ subset }) => {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(subset) && subset.length > 0 ?
-            subset
-              .filter((val) => {
-                if (val.title === "") {
-                  return val;
-                } else if (
-                  val.title.toLowerCase().includes(search.toLowerCase())
-                ) {
-                  return val;
-                }
-              })
-              .map((val) => (
+          {Array.isArray(filterItem) && filterItem.length > 0 ? filterItem.map((val) => (
                 <>
                   <tr key={val.id}>
                     <td>{val.id}</td>
