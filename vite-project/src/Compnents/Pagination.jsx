@@ -46,7 +46,8 @@ const Pagination = () => {
     <>
     <p>no data found</p>
       <Error/>
-    </>)
+    </>
+    )
  }
 
   return (
